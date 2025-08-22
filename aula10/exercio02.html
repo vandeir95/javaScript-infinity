@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"><p> ola
+
+    </p></div>
+    <div class="box"><p> ola
+
+    </p></div>
+    <div class="box"><p> ola  
+    </p></div>
+
+    
+
+    <script>
+        const divs = document.querySelectorAll(".box")
+
+        divs.forEach(div => {
+            div.style.display = "flex"           // ativa o flexbox
+            div.style.justifyContent = "center" // centraliza horizontal
+            div.style.alignItems = "center"     // centraliza vertical
+            div.style.height = "200px"
+            div.style.width = "200px"
+            div.style.background = "blue"
+            
+            div.style.color = "white"
+            div.style.fontWeight = "bold"
+            div.style.margin = "20px auto"
+        });
+
+        
+
+
+    </script>
+
+</body>
+</html>

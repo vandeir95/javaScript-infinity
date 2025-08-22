@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <p>oi</p>
+      <p>oi</p>
+      <p>oi</p>
+      <div id="conteiner"></div>
+
+
+
+
+<script>
+    let paragrafo = document.getElementsByTagName("p")
+
+    
+
+
+    
+
+    const nomes = ["vandeir","jose","maria","carla","joão"]
+
+    for(let i = 0; i < paragrafo.length; i++){
+        paragrafo[i].innerHTML = `ola  ${nomes[i]}`
+        
+    }
+    
+    
+        
+ const conteiner = document.getElementById("conteiner")
+for(let i = 0; i < nomes.length; i++){
+    const novoP = document.createElement('p')
+    novoP.innerText  = `Olá ${nomes[i]} como você estar`
+        conteiner.appendChild(novoP)
+        
+    }
+    
+</script>
+
+</body>
+</html>
