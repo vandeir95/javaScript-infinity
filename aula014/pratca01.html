@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> const promessa = new Promise((resolve, reject)=>{
+        const sucesso = true
+        if (sucesso){
+            resolve("operação bem-sucedida")
+        }else{
+            reject("Falha na operação")
+        }
+    })
+
+
+
+    promessa 
+        .then(resultado => console.log(resultado))
+
+        .catch(error => console.error(error))
+        
+    </script>
+</body>
+</html>

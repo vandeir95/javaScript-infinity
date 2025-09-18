@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+    form{
+        display: flex;
+
+        width: 50%;
+
+        margin: auto;
+
+        justify-content: center;
+        align-items: center;
+
+        flex-direction: column;
+
+        border-color: black;
+
+        background-color: blueviolet;
+
+        border-radius: 10px;
+        
+    }
+
+    button{
+        border-radius: 10px;
+    }
+
+    form >input{
+        border-radius: 10px;
+    }
+
+    form >label{
+        gap: 10px;
+
+        margin: 10px;
+        
+    }
+</style>
+</head>
+<body>
+    
+            <form action=""  id="formulario">
+
+
+            <label for="">Usuario:</label>
+
+
+        
+            <input type="text" placeholder="digite seu Usuario" id="usuario">
+
+            <label for="">Senha:</label>
+
+            <input type="password" placeholder="digite sua senha" id="senha">
+            <br>
+
+            
+            <label for="">telefone :</label>
+            
+            
+            <input type="tel"  id="telefone"  placeholder="(99) 9 9999-9999">
+
+            <br>
+            
+            
+            <label for=""  >Data de nascimento:</label>
+            
+            <input placeholder="11/11/1111" type="date"  id="data">
+
+            <br>
+
+
+            
+            <label for="">E-mail:</label>
+            <br>
+            <input type="email" placeholder="nome@gmail.com"  id="email">
+            <br>
+            
+            <button type="submit"  id="enviar">enviar</button>
+</form>
+
+
+        <h1 id="tituloLista" style="display: flex; justify-content: center;align-items: center; margin-top: 50px;" >Lista de Usuarios</h1>
+
+    <section  style="display: flex; justify-content: center;align-items: center; margin-top: 50px; flex-direction: column;" id="listaDeUsuarios" >
+
+
+
+            <ul id="lista">
+
+                
+            </ul>
+
+
+            
+            <button id="limpar">Limbar lista</button>
+    </section>
+
+
+    
+
+
+
+<script>
+
+    const meuFormulario = document.getElementById("formulario")
+    const botaoLimpar = document.getElementById("limpar");
+
+    
+   
+    meuFormulario.addEventListener('submit',function(event){
+        event.preventDefault();
+
+
+    const usuario = document.getElementById("usuario").value.trim()
+
+    const senha = document.getElementById("senha").value.trim()
+
+    const fone = document.getElementById("telefone").value.trim()
+
+    const data = document.getElementById("data").value.trim()
+
+    const email = document.getElementById("email").value.trim()
+
+    const lista = document.getElementById("lista")
+
+        const dados = [usuario, senha, fone,data, email]
+
+    if (dados.some(item => item ==="")){
+
+        alert("prencha o formulario")
+
+        return
+    }
+
+
+    const li = document.createElement('li')
+    li.textContent = `Usuário: ${usuario} | Senha: ${senha} | Telefone: ${fone} | Data: ${data} | Email: ${email}`;
+      
+
+    lista.appendChild(li)
+
+    meuFormulario.reset()
+
+      
+
+    })
+
+       botaoLimpar.addEventListener("click", function() {
+      lista.innerHTML = "";
+    });
+
+   
+
+
+   
+
+
+</script>
+            
+
+
+</body>
+</html>

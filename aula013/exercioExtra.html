@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    .container {
+
+     margin: auto;   
+  gap: 20px;
+  width: 50%;      
+  display: grid;
+  column-gap: 50px;
+  grid-template-columns: auto auto auto ;
+  background-color: dodgerblue;
+  padding: 10px;
+ border-radius: 5px;
+}
+
+.container > div {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+
+  border-radius: 5px;
+}
+
+#inpt{
+    
+    display: flex;
+    margin: auto;
+    width: 50%;
+    height: 50px;
+    background-color: black;
+    color: #f1f1f1;
+    padding: 8px;
+    font-size:50px ;
+    border-radius: 5px;
+    
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 50px;
+}
+
+</style>
+
+</head>
+<body>
+    <h1>Minha calculadora </h1>
+
+
+    <input placeholder="calculadora do vandeir" id="inpt" type="text">
+
+    <div  class="container">
+       
+        
+        <div onclick = "mostrar(this)" >1</div>
+        <div onclick = "mostrar(this)" >2</div>
+        <div onclick = "mostrar(this)">3</div>  
+        <div onclick = "mostrar(this)">4</div>
+        <div onclick = "mostrar(this)">5</div>
+        <div onclick = "mostrar(this)">6</div>  
+        <div onclick = "mostrar(this)">7</div>
+        <div onclick = "mostrar(this)">8</div>
+        <div onclick = "mostrar(this)">9</div>
+        <div onclick = "mostrar(this)">0</div>
+        <div onclick="calcular()"> = </div>
+
+        <div onclick = "mostrar(this)">+</div>
+        <div onclick = "mostrar(this)">-</div>
+        <div onclick = "mostrar(this)">/</div>
+
+        <div onclick = "mostrar(this)">*</div>
+        <div onclick="limpar(this)">cc</div>
+
+        <div onclick = "raiz()" >&Sqrt;</div>
+
+        <div>%</div>
+
+        <div onclick = "mostrar(this)" >(</div>
+
+        <div onclick = "mostrar(this)">)</div>
+
+
+    </div>
+
+
+    <script>
+
+        const inpt = document.getElementById('inpt')
+        inpt.focus()
+
+       function mostrar (obj){
+      
+
+        
+
+        const valor = obj.innerText
+
+    
+
+
+        
+
+        inpt.value += valor
+
+
+       }
+
+
+
+
+       function calcular(){
+
+        try{
+
+            inpt.value = eval(inpt.value);
+            inpt.focus()
+
+
+            if (inpt == Infinity) {
+
+                
+
+                throw new Error("ao realizar  divisão por 0")
+
+            }
+
+
+            
+
+        }   catch (error){
+            console.error("Ocorreu um erro",  error.menssage)
+        }finally{
+
+            console.log("operação finalizada")
+            console.log(inpt.value)
+        }
+
+
+       
+
+        
+        
+
+       }
+
+
+
+       function limpar (obj){
+
+        inpt.value = ""
+        inpt.focus()
+        
+
+
+       }
+
+         function raiz() {
+        if (inpt.value !== "") {
+        inpt.value = Math.sqrt(Number(inpt.value));
+        }
+        }
+
+
+        inpt.addEventListener("keydown", function(event) {
+         if (event.key === "Enter") {
+           calcular();
+         }
+         })
+
+
+    </script>
+
+
+</body>
+</html>

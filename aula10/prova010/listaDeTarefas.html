@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+        body{
+            background-color: rgba(0, 0, 0, 0.967);
+        }
+
+
+
+        h1#infinity{
+            display: flex;
+            margin: auto;
+
+            
+         
+            text-shadow: 5px 2px 10px red;
+
+            color: white;
+
+                        
+            
+        }
+
+        h1{
+
+           
+
+            
+            
+
+            width: 220px;
+
+            height: 100px;
+
+           
+            
+            display: flex;
+
+            justify-content: center;
+            
+
+            
+
+            alignment-baseline: central;
+            
+            
+           
+           
+        }
+
+
+        #tarefa{
+
+            display: flex;
+           border-radius: 5px;
+
+            width: 220px;
+
+            height: 30px;
+
+
+           
+
+        }
+
+        #adicionar{
+            color: rgba(14, 1, 1, 0.981);
+            border-radius: 5px;
+
+            height: 40px;
+
+            position: relative;
+
+            display: block;
+
+            
+
+            background-color:rgb(32, 201, 32);
+            
+            
+        }
+
+        #minhasTarefas{
+            box-shadow: 1px 1px 10px black;
+            
+            margin: auto;
+            display: flex;
+            border-color: black;
+            background-color:  rgba(192, 192, 192, 0.73);
+           
+
+            border-radius: 10px;
+            align-items: center;
+           
+            justify-content: center;
+
+            flex-direction: column;
+            
+            
+            gap: 60px;
+            width: 500px;
+
+            
+         
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+   <h1 id="infinity">infinity school</h1>
+    
+    
+    
+<section id="minhasTarefas" >
+
+    <h1>Lista de tarefas </h1>
+    
+
+
+    <input id="tarefa" type="text">
+
+    <button onclick="adicionarTarefa()" id="adicionar">Adicionar tarefa </button>
+
+
+
+    <h3>gerenciar tarefas</h3>
+
+
+    <ol  id="lista">
+
+     
+
+
+    </ol>
+
+
+
+</section>
+
+
+
+
+<script>
+
+
+        const lista = document.getElementById("lista")
+
+        const tarefa = document.getElementById("tarefa")
+
+        console.log(lista,tarefa)
+
+       
+
+
+        function adicionarTarefa(){
+
+            const valor = tarefa.value
+            const Novatarefa = document.createElement('li')
+            const buttonConcluir = document.createElement('button')
+            Novatarefa.textContent = valor
+            buttonConcluir.textContent = "concluir tarefa"
+            
+            Novatarefa.style.color = "red"
+
+            lista.append(Novatarefa, buttonConcluir)
+
+            Novatarefa.style.gap = "10px"
+            lista.style.display = 'flex'
+            lista.style.flexDirection = 'column' // mesma linha
+            lista.style.alignItems = 'center' // alinha verticalmente
+            lista.style.justifyContent = 'space-between' // espaço entre os itens
+            buttonConcluir.style.backgroundColor = "rgb(32, 201, 32)"
+            buttonConcluir.style.color = 'white'
+            buttonConcluir.style.borderRadius = "5px"
+
+            // espaço entre o texto e o botão
+            lista.style.gap = "10px"
+
+            tarefa.value = ''
+
+            tarefa.focus()
+
+            
+
+            buttonConcluir.onclick = function(){
+
+                alert("deseja concluir a tarefa")
+
+                Novatarefa.style.textDecoration = "line-through"
+
+                Novatarefa.style.color = "green"
+
+                buttonConcluir.style.display = "none"
+
+
+            }
+        }
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

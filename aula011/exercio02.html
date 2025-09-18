@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input id="input" type="text">
+    <button id="meuBotao"  >Eviar </button>
+
+    <ul id="lista">
+
+    </ul>
+
+
+    <script>
+
+        const entrada = document.getElementById("input") 
+
+        
+        const btn = document.getElementById("meuBotao") 
+
+        const lista = document.getElementById("lista")
+
+       
+
+        
+
+        btn.onclick= function(){
+
+            const valor = entrada.value
+            
+             const novoLi = document.createElement('li')
+
+             novoLi.textContent = valor
+             
+
+            lista.appendChild(novoLi)
+
+            novoLi.style.gap = "50px"
+
+            entrada.value = ''
+
+            entrada.focus()
+
+        }
+
+
+        function mostrarValor() {
+  // 1. Seleciona o elemento input pelo seu ID
+  let campo = document.getElementById('meuInput');
+  // 2. Acede ao valor do campo
+  let valor = campo.value;
+  // 3. Exibe o valor no console ou num elemento <p>
+  console.log(valor);
+  document.getElementById('resultado').innerText = "O valor é: " + valor;
+}
+
+
+    </script>
+    
+</body>
+</html>
+
+

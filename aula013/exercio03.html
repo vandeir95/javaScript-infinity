@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+
+  <script>
+
+
+
+   function cadastroUsuario (usuario){
+
+    const nome = usuario.nome
+
+    const idade = usuario.idade
+
+
+    try{
+
+      if (nome.length < 3) {
+        throw new Error("Nome com menos de 3 caracte ")
+
+      }
+
+      else if (idade < 0 ) {
+        throw new Error("A idade do usuario e menor que  0 anos")
+      }
+
+
+     else if (idade < 18 ) {
+        throw new Error("A idade do usuario e menor que 18 anos")
+      }
+
+      alert("usuario cadastrado")
+
+      console.log(`o usuario ${nome} foi cadastrado com sucesso`)
+
+    }catch (error){
+
+      console.error("Error ao cadastrar usuario, ", error.message)
+
+
+    }finally{
+      console.log("Ferificação de cadasto finalizado")
+    }
+
+
+
+   }
+
+
+let pessoa1 = {nome: 'Jose', idade: 25}
+let pessoa2 = {nome: 'Vitor', idade: 12}
+let pessoa3 = {nome: 'Zéca', idade: -10}
+let pessoa4 = {nome: 'Fa', idade: 11}
+
+cadastroUsuario(pessoa1)
+console.log('------------------------')
+cadastroUsuario(pessoa2)
+console.log('------------------------')
+cadastroUsuario(pessoa3)
+console.log('------------------------')
+cadastroUsuario(pessoa4)
+
+const nome = pessoa1.nome 
+
+console.log(nome.length)
+
+  </script>
+
+
+</body>
+</html>

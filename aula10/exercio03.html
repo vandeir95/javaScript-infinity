@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img onmousedown="mDown" onclick="mudarFoto()" id="minhaImagem" src="imagem01.jpeg" alt="imagem01">
+   
+
+    <button  id="meuBotao"> <a id="meuLink" target="_blank" href="https://www.w3schools.com/html/html_links.asp">olá</a></button>
+
+
+    <img onmouseover="mOver(this)" onmouseout="mOut(this)"  id="minhaImagem02" src="imagem01.jpeg" alt="imagem02">
+
+
+    <div onmousedown="mDown(this)" onmouseup="mUp(this)"
+    style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+     Click Me</div>
+
+    <script>
+        // ao usar  aciona a funçãó mudarFotto atraves no onclick, e usado o id para acessar o bjeto
+        function mudarFoto(){
+            document.getElementById('minhaImagem').setAttribute('src',"imagem02.jpeg")
+
+        }
+        // reatribui o indereço do link ultilizando o setAttribute, e usado o id para acessar o bjeto
+         document.getElementById('meuLink').setAttribute('href',"https://www.youtube.com/")
+    
+
+        //muda a imagem ao incostar o mouse nela, e usado o id para acessar o bjeto
+        function mOver() {
+            document.getElementById('minhaImagem02').setAttribute('src',"imagem02.jpeg")
+        }
+        // imagem quando o mouse não estar incostando nela,
+        function mOut() {
+        document.getElementById('minhaImagem02').setAttribute('src',"imagem01.jpeg")
+        }
+
+        // muda o texto e cor do obj ao precionar o mouse
+        function mDown(obj) {
+        obj.style.backgroundColor = "#1ec5e5";
+        obj.innerHTML = "Release Me";
+        }
+        // muda o texto e cor do obj ao parar de precionar o mouse
+        function mUp(obj) {
+        obj.style.backgroundColor="#D94A38";
+        obj.innerHTML="Thank You";
+        }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input id="entrada" type="text" placeholder="digite seu nomme ">
+    <button onclick=" salva()" id="salvar">Salva</button>
+
+
+    <script>
+
+      
+
+        const paragrafo = document.createElement('p')
+
+        
+       
+        
+        function salva(){
+            localStorage.setItem('nome', document.getElementById("entrada").value)
+            const  nome = localStorage.getItem("nome")
+
+            paragrafo.innerText = nome
+
+            document.body.appendChild(paragrafo)
+        
+
+            
+
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

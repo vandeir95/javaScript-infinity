@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Escola estadual das Notas</h1>
+
+<form action="">
+
+
+    
+    <label for="">Nome da materia:</label>
+
+    <input id="materia" placeholder="materia" type="text">
+
+    <br>
+
+    <label for="">Nota :</label>
+     <input id="nota" placeholder="0 a 10" type="number">
+     <br>
+
+    <button id="btnAdd" type="button">Adicionar nota </button>
+
+    <button id="btnExb" type="button"  >exbir notas</button>
+   
+</form>
+
+
+    <ul id="lista">
+
+        <li>notas</li>
+    </ul>
+
+    <script>
+
+        const btnAdd = document.getElementById("btnAdd")
+
+        const btnExb = document.getElementById("btnExb")
+
+        const lista = document.getElementById("lista")
+
+       
+
+
+        btnAdd.onclick = function(event){
+
+            event.preventDefault(); 
+            
+             const nota = document.getElementById("nota").value.trim()
+             const materia = document.getElementById("materia").value.trim()
+
+
+               if (!materia || !nota) {
+                alert("Preencha todos os campos!")
+                return
+            }
+
+
+             const  prova = { materia,  nota }
+
+
+            let provas = JSON.parse(localStorage.getItem("provas")) || []
+            provas.push(prova)
+
+            localStorage.setItem('provas',JSON.stringify(provas))
+
+            console.log(provas)
+
+             alert("Nota adicionada!")
+
+
+
+
+
+
+
+        }
+
+         // Função para exibir notas
+    btnExb.onclick = function(){
+        // Limpa a lista antes de exibir
+        lista.innerHTML = ""
+
+        let provas = JSON.parse(localStorage.getItem("provas")) || []
+
+        if(provas.length === 0){
+            lista.innerHTML = "<li>Nenhuma nota cadastrada</li>"
+            return
+        }       
+        
+
+     provas.forEach((prova, index) => {
+        const item = document.createElement("li")
+        item.innerText = `${prova.materia}: ${prova.nota} `
+
+        // Criar botão de excluir
+        const btnExc = document.createElement("button")
+        btnExc.innerText = "Excluir nota"
+        btnExc.style.marginLeft = "10px"
+
+        // Evento do botão excluir
+        btnExc.onclick = function(){
+            provas.splice(index, 1)  // remove do array
+            localStorage.setItem("provas", JSON.stringify(provas)) // atualiza localStorage
+            btnExb.click() // atualiza a lista
+        }
+
+        item.appendChild(btnExc)
+        lista.appendChild(item)
+    })
+}
+
+
+
+       
+
+
+    </script>
+</body>
+</html>

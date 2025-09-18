@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1{display: flex;
+            
+           
+            justify-content: center;
+
+        }
+
+        #formulario {
+            width: 50%;
+           flex-direction: column;
+            display: flex;
+            gap: 4px;
+            margin: auto;
+        }
+
+
+        label{
+
+            gap: 5px;
+            
+        }
+
+        input{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<h1>cadastro Infinity</h1>
+
+
+<form id="formulario" action="">
+
+    <label for="">nome</label>
+    <input id="nome" type="text"> <br>
+    <label for="">Usuário</label>
+    <input id="usuario" type="text"> <br>
+
+    <label for="">Senha</label>
+    <input id="senha" type="password"> <br>
+    <label for="">confirma senha</label>
+    <input id="confSenha" type="password"> <br>
+
+
+     <label for="">E-mail</label>
+    <input id="email" type="email"> <br>
+    <label for="">Idade</label>
+    <input id="idade" type="number"> <br>
+
+    
+
+    <button type="submit" id="button">Cadastrar</button>
+
+
+
+    <script>
+
+
+    
+    const btn =  document.getElementById("idade")
+
+
+    const formulario = document.getElementById("formulario")
+
+
+formulario.addEventListener("submit",function(event){
+  try{
+    event.preventDefault()
+
+    const nome = document.getElementById("nome").value.trim()
+    const usuario =  document.getElementById("usuario").value.trim()
+
+    const senha = document.getElementById("senha").value.trim()
+
+    const confSenha = document.getElementById("confSenha").value.trim()
+
+    const email =  document.getElementById("email").value.trim()
+
+    const idade =  document.getElementById("idade").value.trim()
+
+    
+    const dados = [nome,usuario,senha,email,idade]
+
+    
+
+    if (dados.some(item => item ==="")){
+
+        alert("dado em barnco revise o fornulario")
+
+     throw new Error("revise o formulario, dados em branco")
+
+     
+
+        
+    }
+
+
+   else if (idade < 0 ){
+        alert("idade invalida",)
+        throw new Error("Idade ivalida")
+
+
+
+    }
+
+     else if (idade < 18 ){
+        throw new Error("Idade ivalida, o usuario dever ser de maior ")
+
+      
+    }
+
+
+     else if (senha != confSenha ){
+        throw new Error("As Senhas devem ser iguais")
+
+        
+    }
+    alert("usuario cadastrado")
+    
+    console.log(dados)
+
+    formulario.reset()
+
+    }catch(error) {
+        console.error("Erro", error.message)
+    }
+
+
+    
+    
+
+})
+
+
+    
+
+
+
+
+    </script>
+
+    
+
+
+</form>
+    
+</body>
+</html>
+
+
+
+

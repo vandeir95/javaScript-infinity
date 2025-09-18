@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    #conteiner{
+        
+        
+        gap: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    button{
+
+        
+        
+        width: 200px;
+        height: 40px;
+    }
+</style>
+    
+</head>
+<body>
+
+
+
+
+<div id="conteiner" >
+
+
+
+<button onclick="adicionarParagrafo()" id="adicionarParagrafo">Adicionar Paragrafo</button>
+
+<button onclick="removerParagrafo()" id="removerParagrafo"> Remover Paragrafo </button>
+
+</div>
+ 
+
+<script>
+
+    const conteiner = document.getElementById("conteiner")
+    const novoP = document.createElement('p')
+
+    function adicionarParagrafo(){
+        
+        novoP.style.position = "absolute"
+        novoP.style.marginTop = "200px"
+
+        novoP.innerText = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, sit iste! Cum, eaque dolores. Soluta hic, et expedita quas corrupti ex error eos libero sapiente dolore alias, deleniti explicabo non.'
+        conteiner.appendChild(novoP)
+    }
+
+
+    function removerParagrafo(){
+
+        conteiner.removeChild(novoP)
+
+        return alert("paragrafo removido ")
+
+    }
+
+</script>
+
+</body>
+</html>
