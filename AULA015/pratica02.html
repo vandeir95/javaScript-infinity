@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=species: 'Human', initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+         const URL = "https://rickandmortyapi.com/api/character"
+
+
+        fetch(`${URL}/5`)
+
+        .then(response => response.json())
+        .then( data => {
+        const personagem01 = data
+
+           let nome = personagem01.name
+           let origem = personagem01.origin.name
+            let espece = personagem01.species
+        console.log("primero personage:")
+
+        console.log(`nome : ${nome} \nespece: ${espece} \norigem :${origem}`)
+       } )
+
+
+
+         
+
+
+        fetch(`${URL}/10`)
+
+        .then(response => response.json())
+        .then( data => {
+        const personagem01 = data
+
+           let nome = personagem01.name
+           let nacimento = personagem01.created
+            let espece = personagem01.species
+        console.log("segundo personatem")
+
+        console.log(`nome : ${nome} \nespece: ${espece} \norigem :${nacimento}`)
+       } )
+
+
+        
+
+
+               fetch(`${URL}/15`)
+
+        .then(response => response.json())
+        .then( data => {
+        const personagem01 = data
+
+           let nome = personagem01.name
+           let origem = personagem01.origin.name
+            let espece = personagem01.species
+        console.log(data)
+
+        console.log(`nome : ${nome} \nespece: ${espece} \norigem :${origem}`)
+       } )
+
+    </script>
+</body>
+</html>

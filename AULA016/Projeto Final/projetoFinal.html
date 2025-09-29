@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+
+<header>
+    <div id="titulo">
+
+        <img src="imgs/giphy.gif" alt="">
+
+        <h1>Busca Personahem Rick and morty <strong>. Testa da API</strong></h1>
+    </div>
+
+
+</header>
+    <div id="linha"></div>
+
+
+
+
+<section class="padrao">
+    <div>
+        <label for="text">Escolha seu Personagem</label>
+        <input id="input" placeholder="Digite somente o ID" type="number">
+        <button id="btn">Enviar</button>
+
+    </div>
+
+</section>
+
+
+    <section class="padrao">
+        <p id="Dados">Dados </p>
+
+    <div id="resposta">
+
+    </div>
+
+    </section>
+
+    <footer>Projeto final Infinity School    </footer>
+
+
+
+    <script>
+
+        const URL = "https://rickandmortyapi.com/api/character"
+
+        const inpt = document.getElementById("input")
+        
+        const btn = document.getElementById("btn")
+
+
+        btn.addEventListener("click", function (){
+
+             fetch(`${URL}/${inpt.value}`)
+
+             .then(response => response.json())
+             .then(data =>{
+                
+
+            const  personagem = data
+            const nome = personagem.name
+            const foto = personagem.image
+            const espece = personagem.species
+            const status = personagem.status
+
+            console.log(personagem)
+            console.log(status)
+            const paragrafoEsp  = document.createElement("p")
+             paragrafoEsp.innerText =` Espece: ${espece}`
+
+            const resposta = document.getElementById("resposta")
+
+            const img = document.createElement("img")
+
+            img.src = foto
+
+            const paragrafoSt = document.createElement("p")
+
+             paragrafoSt.innerText = ` Status:  ${ status}`
+
+             const nomePes =  document.createElement("h2")
+             nomePes.innerText = `Nome: ${nome}`
+
+
+            resposta.appendChild(nomePes)
+            resposta.appendChild(img)
+            resposta.appendChild(paragrafoEsp,)
+            resposta.appendChild(paragrafoSt)
+             
+             })
+        })
+
+    </script>
+</body>
+</html>
